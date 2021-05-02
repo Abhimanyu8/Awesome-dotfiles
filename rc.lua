@@ -52,7 +52,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -65,8 +65,8 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+	awful.layout.suit.tile,
     awful.layout.suit.floating,
-    awful.layout.suit.tile,
     -- awful.layout.suit.tile.left,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
@@ -353,7 +353,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -579,3 +579,23 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+--My playground starts here !!!
+
+-- startup programs :
+awful.spawn.with_shell("feh --bg-scale ~/Downloads/wp5615275-4k-minimal-anime-wallpapers.jpg")
+awful.spawn("compton")
+
+-- G A P S !!
+beautiful.useless_gap = 5
+--Lain Stuff
+
+local lain = require("lain")
+
+return {
+    layout = require("lain.layout"),
+    util   = require("lain.util"),
+    widget = require("lain.widget")
+}
+
+
