@@ -317,6 +317,7 @@ globalkeys = gears.table.join(
               {description = "select previous", group = "layout"}),
     -- My Bindings
     awful.key({modkey, }, "r", function () awful.util.spawn_with_shell("rofi -show drun") end),
+    awful.key({modkey, }, "p", function () awful.util.spawn_with_shell("scrot") end),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -342,7 +343,7 @@ globalkeys = gears.table.join(
               end,
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
+    awful.key({ modkey }, "o", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
 )
 
@@ -507,7 +508,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -583,13 +584,12 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --My playground starts here !!!
 
 -- startup programs :
-awful.spawn.with_shell("feh --bg-scale ~/Downloads/wp5615275-4k-minimal-anime-wallpapers.jpg")
-awful.spawn("compton")
+awful.spawn.with_shell("feh --bg-scale ~/Downloads/rohit-tandon-9wg5jCEPBsw-unsplash.jpg")
 
 -- G A P S !!
-beautiful.useless_gap = 5
---Lain Stuff
+beautiful.useless_gap = 6
 
+--Lain Stuff
 local lain = require("lain")
 
 return {
@@ -597,5 +597,4 @@ return {
     util   = require("lain.util"),
     widget = require("lain.widget")
 }
-
 
