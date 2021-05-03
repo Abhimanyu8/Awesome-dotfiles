@@ -316,8 +316,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
     -- My Bindings
-    awful.key({modkey, }, "r", function () awful.util.spawn_with_shell("rofi -show drun") end),
-    awful.key({modkey, }, "p", function () awful.util.spawn_with_shell("scrot") end),
+    awful.key({modkey, }, "r", function () awful.util.spawn_with_shell("rofi -show drun")     end,
+    		  {description = "Launch rofi", group = "launcher"}),
+    awful.key({modkey, }, "p", function () awful.util.spawn_with_shell("scrot")               end,
+    		  {description = "Screenshot", group = "launcher"}),
+    awful.key({modkey, }, "b", function () awful.util.spawn_with_shell("firefox")               end,
+    		  {description = "Fire Up Firefox", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -586,7 +590,12 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- startup programs :
 awful.spawn.with_shell("feh --bg-scale ~/Downloads/rohit-tandon-9wg5jCEPBsw-unsplash.jpg")
 
--- G A P S !!
+-- Theme handling
+beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/zenburn/theme.lua")
+local theme_path = string.format("%s/.config/awesome/themes/zenburn/theme.lua", os.getenv("HOME"), "zenburn")
+beautiful.init(theme_path)
+
+--P E R M A N A N T _ G A P S !!
 beautiful.useless_gap = 6
 
 --Lain Stuff
