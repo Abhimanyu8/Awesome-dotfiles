@@ -315,6 +315,27 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
+     -- Volume Keys
+   awful.key({}, "XF86AudioLowerVolume", function ()
+     awful.util.spawn("amixer -q -D pulse sset Master 5%-", false)
+   end),
+   awful.key({}, "XF86AudioRaiseVolume", function ()
+     awful.util.spawn("amixer -q -D pulse sset Master 5%+", false)
+   end),
+   awful.key({}, "XF86AudioMute", function ()
+     awful.util.spawn("amixer -D pulse set Master 1+ toggle", false)
+   end),
+   -- Media Keys
+   awful.key({}, "XF86AudioPlay", function()
+     awful.util.spawn("playerctl play-pause", false)
+   end),
+   awful.key({}, "XF86AudioNext", function()
+     awful.util.spawn("playerctl next", false)
+   end),
+   awful.key({}, "XF86AudioPrev", function()
+     awful.util.spawn("playerctl previous", false)
+   end),
+
     -- My Bindings
     awful.key({modkey, }, "r", function () awful.util.spawn_with_shell("rofi -show drun")     end,
     		  {description = "Launch rofi", group = "launcher"}),
@@ -512,7 +533,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
+      }, properties = { titlebars_enabled = true }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -587,8 +608,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 --My playground starts here !!!
 
--- startup programs :
-awful.spawn.with_shell("feh --bg-scale ~/Downloads/rohit-tandon-9wg5jCEPBsw-unsplash.jpg")
+-- Wallpaper setting while reload/restart using feh :
+awful.spawn.with_shell("feh --bg-scale /home/avimanyu/.config/awesome/themes/zenburn/zenburn-background.png")
 
 -- Theme handling
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/zenburn/theme.lua")
@@ -597,6 +618,9 @@ beautiful.init(theme_path)
 
 --P E R M A N A N T _ G A P S !!
 beautiful.useless_gap = 6
+
+--Keyboard Media Control
+--(added to the bindings section)
 
 --Lain Stuff
 local lain = require("lain")
