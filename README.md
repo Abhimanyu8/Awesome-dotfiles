@@ -1,4 +1,4 @@
-# My-Awesome-Config
+# Awesome Zenburn
 _Dotfiles of my awesome wm build to carry around_ σ(≧ε≦ｏ)
 #### Install :
 
