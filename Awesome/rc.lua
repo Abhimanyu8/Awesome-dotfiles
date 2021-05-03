@@ -339,7 +339,7 @@ globalkeys = gears.table.join(
     -- My Bindings
     awful.key({modkey, }, "r", function () awful.util.spawn_with_shell("rofi -show drun")     end,
     		  {description = "Launch rofi", group = "launcher"}),
-    awful.key({modkey, }, "p", function () awful.util.spawn_with_shell("scrot")               end,
+    awful.key({modkey, }, "p", function () awful.util.spawn_with_shell("scrot -e 'mv $f ~/scrot'")end,
     		  {description = "Screenshot", group = "launcher"}),
     awful.key({modkey, }, "b", function () awful.util.spawn_with_shell("firefox")               end,
     		  {description = "Fire Up Firefox", group = "launcher"}),
@@ -608,13 +608,13 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 --My playground starts here !!!
 
--- Wallpaper setting while reload/restart using feh :
-awful.spawn.with_shell("feh --bg-scale /home/avimanyu/.config/awesome/themes/zenburn/zenburn-background.png")
-
 -- Theme handling
 beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/zenburn/theme.lua")
 local theme_path = string.format("%s/.config/awesome/themes/zenburn/theme.lua", os.getenv("HOME"), "zenburn")
 beautiful.init(theme_path)
+
+-- Wallpaper setting while reload/restart using feh :
+awful.spawn.with_shell("feh --bg-scale /home/avimanyu/.config/awesome/themes/zenburn/zenburn-background.png")
 
 --P E R M A N A N T _ G A P S !!
 beautiful.useless_gap = 6
