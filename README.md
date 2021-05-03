@@ -15,4 +15,8 @@ to `~/.config/awesome`
 
 4. Get your workflow on steriods with the power of awesome ! o(*>ω<*)o
 
-![2021-05-03-115309_1920x1080_scrot](https://user-images.githubusercontent.com/54982599/116846576-2ece8600-ac06-11eb-93bf-3a7541b45a72.png)
+#### Screenshots :
+
+![2021-05-03-204202_1920x1080_scrot](https://user-images.githubusercontent.com/54982599/116894999-55191380-ac50-11eb-8b0b-e575af6a9430.png)
+
+
