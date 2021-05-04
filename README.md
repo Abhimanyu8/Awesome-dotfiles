@@ -11,7 +11,7 @@ to `~/.config/awesome`
 
 `sudo apt install lxappreance compton alsa-utils playerctl feh rofi`
 
-3. Reload Awesome ( `Ctrl` + `super` + `r` )
+3. Reload ( `Ctrl` + `super` + `r` )
 
 4. Get your workflow on steriods with the power of awesome ! o(*>ω<*)o
 
