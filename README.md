@@ -8,8 +8,8 @@ to `~/.config/awesome`
 2. Install dependencies using :
 
 `sudo apt update`
-
-`sudo apt install lxappreance compton alsa-utils playerctl feh rofi`
+ 
+`sudo apt install lxappearance compton alsa-utils playerctl feh rofi`
 
 3. Reload ( `Ctrl` + `super` + `r` )
 
