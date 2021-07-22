@@ -622,12 +622,3 @@ beautiful.useless_gap = 6
 --Keyboard Media Control
 --(added to the bindings section)
 
---Lain Stuff
-local lain = require("lain")
-
-return {
-    layout = require("lain.layout"),
-    util   = require("lain.util"),
-    widget = require("lain.widget")
-}
-
